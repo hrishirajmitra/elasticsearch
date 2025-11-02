@@ -1,0 +1,21 @@
+# Core dependencies
+datasets>=2.14.0
+transformers>=4.30.0
+huggingface-hub>=0.16.4
+
+# Text preprocessing
+nltk>=3.8.1
+spacy>=3.5.0
+
+# Elasticsearch
+elasticsearch>=8.0.0
+elasticsearch-dsl>=8.0.0
+
+# Data handling and visualization
+pandas>=2.0.0
+matplotlib>=3.7.0
+seaborn>=0.12.0
+numpy>=1.24.0
+
+# Storage and serialization
+psutil>=5.9.0
