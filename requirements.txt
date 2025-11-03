@@ -5,11 +5,9 @@ huggingface-hub>=0.16.4
 
 # Text preprocessing
 nltk>=3.8.1
-spacy>=3.5.0
 
 # Elasticsearch
 elasticsearch>=8.0.0
-elasticsearch-dsl>=8.0.0
 
 # Data handling and visualization
 pandas>=2.0.0
@@ -19,3 +17,9 @@ numpy>=1.24.0
 
 # Storage and serialization
 psutil>=5.9.0
+
+# Optional: Database backends for SelfIndex variations
+# Uncomment if you want to use these datastores:
+# rocksdb>=0.7.0
+# redis>=4.5.0
+# psycopg2-binary>=2.9.0  # For PostgreSQL

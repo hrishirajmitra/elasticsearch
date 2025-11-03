@@ -48,70 +48,30 @@ class TextPreprocessor:
                     pass
     
     def load_raw_data(self, filename: str = "wikipedia_raw.json") -> List[Dict]:
-        """Load the raw Wikipedia data"""
-        filepath = self.raw_data_dir / filename
-        print(f"Loading data from {filepath}...")
-        
-        with open(filepath, 'r', encoding='utf-8') as f:
-            documents = json.load(f)
-        
-        print(f"Loaded {len(documents):,} documents")
-        return documents
+        with open(self.raw_data_dir / filename, 'r', encoding='utf-8') as f:
+            return json.load(f)
     
     def tokenize_without_preprocessing(self, text: str) -> List[str]:
-        """Tokenize text with minimal processing (just lowercase and basic tokenization)"""
-        text = text.lower()
-        # Simple tokenization - split on whitespace and basic punctuation
-        tokens = re.findall(r'\b\w+\b', text)
-        return tokens
+        return re.findall(r'\b\w+\b', text.lower())
     
     def tokenize_with_preprocessing(self, text: str) -> List[str]:
-        """
-        Full preprocessing: lowercase, tokenize, remove stopwords, 
-        handle punctuation, and apply stemming
-        """
-        # Convert to lowercase
         text = text.lower()
-        
-        # Remove URLs
-        text = re.sub(r'http\S+|www\S+|https\S+', '', text)
-        
-        # Remove email addresses
-        text = re.sub(r'\S+@\S+', '', text)
-        
-        # Remove special characters and punctuation, keep only alphanumeric
+        text = re.sub(r'http\S+|www\S+|https\S+|\S+@\S+', '', text)
         text = re.sub(r'[^a-z0-9\s]', ' ', text)
-        
-        # Remove extra whitespace
         text = re.sub(r'\s+', ' ', text).strip()
         
-        # Tokenize
         try:
             tokens = word_tokenize(text)
         except:
             tokens = text.split()
         
-        # Remove tokens that are just numbers
-        tokens = [token for token in tokens if not token.isdigit()]
-        
-        # Remove very short tokens (less than 2 characters)
-        tokens = [token for token in tokens if len(token) >= 2]
-        
-        # Remove stopwords
+        tokens = [token for token in tokens if not token.isdigit() and len(token) >= 2]
         tokens = [token for token in tokens if token not in self.stop_words]
-        
-        # Apply stemming
         tokens = [self.stemmer.stem(token) for token in tokens]
         
         return tokens
     
     def process_documents(self, documents: List[Dict]) -> Tuple[List[Dict], Counter, Counter]:
-        """
-        Process all documents and generate word frequency statistics
-        
-        Returns:
-            Tuple of (processed_documents, freq_without_preprocessing, freq_with_preprocessing)
-        """
         print("Processing documents...")
         
         processed_docs = []
@@ -140,23 +100,15 @@ class TextPreprocessor:
             }
             processed_docs.append(processed_doc)
             
-            if (i + 1) % 5000 == 0:
-                print(f"  Processed {i + 1:,}/{len(documents):,} documents")
-        
-        # Calculate word frequencies
         freq_without = Counter(all_tokens_raw)
         freq_with = Counter(all_tokens_processed)
         
-        print(f"\nUnique tokens WITHOUT preprocessing: {len(freq_without):,}")
-        print(f"Total tokens WITHOUT preprocessing: {sum(freq_without.values()):,}")
-        print(f"\nUnique tokens WITH preprocessing: {len(freq_with):,}")
-        print(f"Total tokens WITH preprocessing: {sum(freq_with.values()):,}")
+        print(f"Unique tokens: {len(freq_without):,} raw, {len(freq_with):,} processed")
         
         return processed_docs, freq_without, freq_with
     
     def plot_word_frequencies(self, freq_without: Counter, freq_with: Counter, top_n: int = 30):
-        """Generate word frequency comparison plots"""
-        print("\nGenerating word frequency plots...")
+        print("Generating plots...")
         
         # Plot 1: Top N words comparison
         fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(18, 8))
@@ -212,12 +164,39 @@ class TextPreprocessor:
         ax.legend(fontsize=11)
         ax.grid(True, alpha=0.3)
         
-        plot_file2 = self.plots_dir / "frequency_distribution_zipf.png"
-        plt.savefig(plot_file2, dpi=300, bbox_inches='tight')
-        print(f"Saved: {plot_file2}")
+        plt.savefig(self.plots_dir / "frequency_distribution_zipf.png", dpi=300, bbox_inches='tight')
         plt.close()
         
-        # Plot 3: Statistics comparison
+        # Plot 2b: Non-log
+        fig, ax = plt.subplots(figsize=(12, 7))
+        
+        # Show top 1000 for non-log scale
+        top_n_dist = 1000
+        ax.plot(range(1, min(top_n_dist, len(freqs_raw)) + 1), 
+                freqs_raw[:top_n_dist], 
+                label='Without Preprocessing', 
+                alpha=0.7, 
+                linewidth=2,
+                marker='o',
+                markersize=2)
+        ax.plot(range(1, min(top_n_dist, len(freqs_proc)) + 1), 
+                freqs_proc[:top_n_dist], 
+                label='With Preprocessing', 
+                alpha=0.7, 
+                linewidth=2,
+                marker='s',
+                markersize=2)
+        
+        ax.set_xlabel('Rank', fontsize=12)
+        ax.set_ylabel('Frequency', fontsize=12)
+        ax.set_title(f'Word Frequency Distribution - Top {top_n_dist} (Linear Scale)', fontsize=14, fontweight='bold')
+        ax.legend(fontsize=11)
+        ax.grid(True, alpha=0.3)
+        
+        plt.savefig(self.plots_dir / "frequency_distribution_linear.png", dpi=300, bbox_inches='tight')
+        plt.close()
+        
+        # Plot 3: Statistics
         fig, ax = plt.subplots(figsize=(10, 6))
         
         categories = ['Unique\nTokens', 'Total\nTokens', 'Avg Token\nLength']
@@ -254,31 +233,20 @@ class TextPreprocessor:
             ax.text(i + width/2, v2, f'{v2:,.0f}' if i < 2 else f'{v2:.1f}', 
                    ha='center', va='bottom', fontsize=9)
         
-        plot_file3 = self.plots_dir / "preprocessing_statistics.png"
-        plt.savefig(plot_file3, dpi=300, bbox_inches='tight')
-        print(f"Saved: {plot_file3}")
+        plt.savefig(self.plots_dir / "preprocessing_statistics.png", dpi=300, bbox_inches='tight')
         plt.close()
     
     def save_processed_data(self, processed_docs: List[Dict], 
                            freq_without: Counter, freq_with: Counter):
-        """Save processed data and statistics"""
-        print("\nSaving processed data...")
-        
-        # Save processed documents
-        output_file = self.processed_data_dir / "wikipedia_processed.json"
-        with open(output_file, 'w', encoding='utf-8') as f:
+        with open(self.processed_data_dir / "wikipedia_processed.json", 'w', encoding='utf-8') as f:
             json.dump(processed_docs, f, ensure_ascii=False, indent=2)
-        print(f"Saved: {output_file}")
         
-        # Save word frequencies (top 10000 only to save space)
         freq_data = {
             'without_preprocessing': dict(freq_without.most_common(10000)),
             'with_preprocessing': dict(freq_with.most_common(10000))
         }
-        freq_file = self.processed_data_dir / "word_frequencies.json"
-        with open(freq_file, 'w', encoding='utf-8') as f:
+        with open(self.processed_data_dir / "word_frequencies.json", 'w', encoding='utf-8') as f:
             json.dump(freq_data, f, indent=2)
-        print(f"Saved: {freq_file}")
         
         # Save statistics summary
         stats = {
@@ -297,36 +265,17 @@ class TextPreprocessor:
             }
         }
         
-        stats_file = self.processed_data_dir / "statistics.json"
-        with open(stats_file, 'w', encoding='utf-8') as f:
+        with open(self.processed_data_dir / "statistics.json", 'w', encoding='utf-8') as f:
             json.dump(stats, f, indent=2)
-        print(f"Saved: {stats_file}")
     
     def run(self):
-        """Run the complete preprocessing pipeline"""
-        print("="*80)
         print("TEXT PREPROCESSING PIPELINE")
-        print("="*80)
-        
-        # Load raw data
         documents = self.load_raw_data()
         
-        # Process documents
         processed_docs, freq_without, freq_with = self.process_documents(documents)
-        
-        # Generate plots
         self.plot_word_frequencies(freq_without, freq_with)
-        
-        # Save processed data
         self.save_processed_data(processed_docs, freq_without, freq_with)
-        
-        print("\n" + "="*80)
-        print("PREPROCESSING COMPLETE!")
-        print("="*80)
-        print(f"Processed {len(processed_docs):,} documents")
-        print(f"Results saved in: {self.data_dir}")
-        print(f"  - Processed data: {self.processed_data_dir}")
-        print(f"  - Plots: {self.plots_dir}")
+        print(f"Complete: {len(processed_docs):,} documents")
 
 
 def main():

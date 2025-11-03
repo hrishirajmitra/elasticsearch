@@ -1,0 +1,178 @@
+
+{
+  "metadata": {
+    "total_queries": 100,
+    "num_templates": 10,
+    "distribution_strategy": "balanced_across_templates",
+    "query_types": [
+      "simple",
+      "phrase",
+      "boolean_and",
+      "boolean_or",
+      "boolean_not",
+      "complex"
+    ],
+    "type_distribution": {
+      "simple": 30,
+      "phrase": 30,
+      "boolean_and": 10,
+      "boolean_or": 10,
+      "boolean_not": 10,
+      "complex": 10
+    },
+    "category_breakdown": {
+      "Single Term - High Frequency": {
+        "count": 10,
+        "type": "simple",
+        "description": "Common words with large posting lists"
+      },
+      "Single Term - Medium Frequency": {
+        "count": 10,
+        "type": "simple",
+        "description": "Moderately common technical terms"
+      },
+      "Single Term - Low Frequency": {
+        "count": 10,
+        "type": "simple",
+        "description": "Rare or specialized terms"
+      },
+      "Two-Term Phrases": {
+        "count": 10,
+        "type": "phrase",
+        "description": "Simple phrase queries with implicit AND"
+      },
+      "Three-Term Phrases": {
+        "count": 10,
+        "type": "phrase",
+        "description": "More specific phrase queries"
+      },
+      "Boolean AND Queries": {
+        "count": 10,
+        "type": "boolean_and",
+        "description": "Explicit AND operator for intersection"
+      },
+      "Boolean OR Queries": {
+        "count": 10,
+        "type": "boolean_or",
+        "description": "OR operator for broader recall"
+      },
+      "Boolean NOT Queries": {
+        "count": 10,
+        "type": "boolean_not",
+        "description": "NOT operator for filtering results"
+      },
+      "Complex Boolean Queries": {
+        "count": 10,
+        "type": "complex",
+        "description": "Nested boolean expressions"
+      },
+      "Long-Tail Queries": {
+        "count": 10,
+        "type": "phrase",
+        "description": "Longer, more specific queries"
+      }
+    }
+  },
+  "queries": [
+    "medical research breakthrough",
+    "system NOT operating",
+    "government",
+    "quantum",
+    "climate change",
+    "thermodynamics",
+    "phenomenology",
+    "education AND reform AND policy",
+    "security OR safety OR protection",
+    "cyber AND security AND attack",
+    "quantum computing cryptography security implications",
+    "(quantum OR classical) AND computing NOT simulation",
+    "data AND science AND analytics",
+    "renewable AND energy AND solar",
+    "environmental sustainability goals",
+    "security",
+    "(health OR medical) AND (research OR study) NOT animal",
+    "electoral system",
+    "mental health",
+    "business",
+    "cybersecurity threat detection prevention response",
+    "financial crisis",
+    "data NOT privacy",
+    "(artificial OR natural) AND intelligence NOT extraterrestrial",
+    "data science",
+    "etymology",
+    "semiotics",
+    "research NOT medical",
+    "health",
+    "supply chain",
+    "digital",
+    "development NOT software",
+    "data OR analytics OR statistics",
+    "(data OR information) AND (security OR privacy)",
+    "autonomous vehicle safety regulation policy framework",
+    "cartography",
+    "management",
+    "sustainability",
+    "digital currency regulation",
+    "(renewable OR solar) AND energy NOT nuclear",
+    "climate change environmental impact mitigation strategies",
+    "government NOT federal",
+    "climate change impact",
+    "technology AND (innovation OR research) NOT military",
+    "economy OR economic OR financial",
+    "cryptocurrency",
+    "research",
+    "metamorphosis",
+    "biodiversity",
+    "sustainable development environmental economic social",
+    "blockchain technology distributed ledger financial systems",
+    "energy OR power OR renewable",
+    "ornithology",
+    "financial market stability",
+    "international OR global OR worldwide",
+    "health NOT mental",
+    "education OR training OR learning",
+    "public health",
+    "financial AND market AND regulation",
+    "technology OR innovation OR digital",
+    "science",
+    "security NOT cyber",
+    "global supply chain",
+    "technology",
+    "social media",
+    "artificial AND intelligence",
+    "international trade agreement",
+    "data privacy protection",
+    "policy",
+    "artificial intelligence natural language processing applications",
+    "photosynthesis",
+    "automation",
+    "algorithm",
+    "system",
+    "optimization",
+    "global health pandemic preparedness response systems",
+    "development OR progress OR advancement",
+    "(climate OR environment) AND (change OR warming)",
+    "toxicology",
+    "space exploration mission",
+    "technology AND innovation AND research",
+    "renewable energy solar power grid integration",
+    "environmental AND protection AND law",
+    "science NOT fiction",
+    "(social OR digital) AND media NOT advertising",
+    "system OR infrastructure OR network",
+    "energy NOT nuclear",
+    "national security",
+    "analytics",
+    "renewable energy",
+    "biotechnology",
+    "machine AND learning AND deep",
+    "(artificial AND intelligence) OR (machine AND learning)",
+    "climate AND change AND policy",
+    "climate OR environment OR ecology",
+    "(economic OR financial) AND (growth OR development) NOT recession",
+    "cryptography",
+    "economic policy analysis",
+    "machine learning deep neural network architecture",
+    "education NOT higher"
+  ]
+}

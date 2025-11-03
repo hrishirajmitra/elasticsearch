@@ -47,73 +47,36 @@ class IndexBase(ABC):
         return f"{self.identifier_short}: {self.identifier_long}"
       
     @abstractmethod
-    def create_index(index_id: str, files: Iterable[tuple[str, str]]) -> None: 
-        """Creates and index for the given files
-        Args:
-            index_id: The unique identifier for the index.
-            files: An iterable (list-like object) of tuples, where each tuple contains the file id and its content.
-        """
-        # DUMMY IMPLEMENTATION, only stores the index_id
-        '''
-        with open(INDEX_STORAGE_PATH) as f:
-            data: list[str] = json.load(f)
-    
-        data.append(index_id)
-    
-        with open(INDEX_STORAGE_PATH, "w") as f:
-            json.dump(data, f)
-        '''
+    def create_index(self, index_id: str, files: Iterable[tuple[str, str]]) -> None: 
+        """Creates and index for the given files"""
         pass
             
     @abstractmethod
-    def load_index(serialized_index_dump: str) -> None:
-        """Loads an already created index into memory from disk.
-        Args:
-            serialized_index_dump: Path to dump of serialized index
-        """
+    def load_index(self, serialized_index_dump: str) -> None:
+        """Loads an already created index into memory from disk"""
         pass
         
     @abstractmethod
-    def update_index(index_id: str, remove_files: Iterable[tuple[str, str]], add_files: Iterable[tuple[str, str]]) -> None:
-        """Updates an index. First removes files from the index, then adds files to the index.
-        Args:
-            index_id: The unique identifier for the index.
-            remove_files: An iterable (list-like object) of tuples, where each tuple contains the file id and its content to be removed.
-            add_files: An iterable (list-like object) of tuples, where each tuple contains the file id and its content to be added.
-        """
+    def update_index(self, index_id: str, remove_files: Iterable[tuple[str, str]], add_files: Iterable[tuple[str, str]]) -> None:
+        """Updates an index"""
         pass
 
     @abstractmethod
-    def query(query: str) -> str:
-        """Queries the already loaded index to generate a results json and return as str
-        Args:
-            query: Input query in str format
-        Returns:
-            results: Output json str with results
-        """
+    def query(self, query: str) -> str:
+        """Queries the already loaded index"""
         pass
   
     @abstractmethod
-    def delete_index(index_id: str) -> None:
-        """Deletes the index with the given index_id."""
-        # Remove index files from disk
+    def delete_index(self, index_id: str) -> None:
+        """Deletes the index with the given index_id"""
         pass
   
     @abstractmethod
-    def list_indices() -> Iterable[str]:
-        """Lists all indices.
-    
-        Returns:
-            An iterable (list) of index ids.
-        """
+    def list_indices(self) -> Iterable[str]:
+        """Lists all indices"""
         pass
   
     @abstractmethod
-    def list_indexed_files(index_id: str) -> Iterable[str]:
-        """Lists all files indexed in the given index.
-    
-        Returns:
-            An iterable (list-like object) of file ids.
-        """
-        # DUMMY IMPLEMENTATION, only returns a fixed set of paths
-        return ["documents/example.txt", "documents/example2.txt"]
+    def list_indexed_files(self, index_id: str) -> Iterable[str]:
+        """Lists all files indexed in the given index"""
+        pass
