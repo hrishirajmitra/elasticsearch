@@ -14,6 +14,8 @@ class DataStore(Enum):
     CUSTOM = 1
     DB1 = 2
     DB2 = 3
+    POSTGRES = 2  # PostgreSQL GIN
+    REDIS = 2     # Redis key-value store
 class Compression(Enum):
     NONE = 1
     CODE = 2
@@ -21,8 +23,10 @@ class Compression(Enum):
 class QueryProc(Enum):
     TERMatat = 'T'
     DOCatat = 'D'
+    DOCatatt = 'D'  # Alias for consistency
 class Optimizations(Enum):
     Null = '0'
+    SKIP = 'sp'  # Added for skip pointers
     Skipping = 'sp'
     Thresholding = 'th'
     EarlyStopping = 'es'

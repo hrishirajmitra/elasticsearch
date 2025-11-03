@@ -21,5 +21,8 @@ psutil>=5.9.0
 # Optional: Database backends for SelfIndex variations
 # Uncomment if you want to use these datastores:
 # rocksdb>=0.7.0
-# redis>=4.5.0
-# psycopg2-binary>=2.9.0  # For PostgreSQL
+redis>=4.5.0
+psycopg2-binary>=2.9.0  # For PostgreSQL
+
+# For Gemini API (optional)
+google-generativeai>=0.3.0
