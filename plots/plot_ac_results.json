@@ -1,0 +1,49 @@
+{
+  "metadata": {
+    "benchmark_timestamp": "2025-11-04 04:38:14",
+    "query_set_size": 100,
+    "query_set_file": "queryset.json"
+  },
+  "taat": {
+    "identifier": "SelfIndex_i3d1c1qTo0",
+    "query_processing": "Term-at-a-Time",
+    "index_stats": {
+      "identifier": "SelfIndex_i3d1c1qTo0",
+      "query_processing": "Term-at-a-Time (TAAT)",
+      "doc_count": 49604,
+      "unique_terms": 484284,
+      "avg_doc_length": 499.28279977421175
+    },
+    "latency": {
+      "mean_ms": 4.780255003715865,
+      "median_ms": 1.0044499940704554,
+      "p50_ms": 1.0044499940704554,
+      "p95_ms": 17.784259986365203,
+      "p99_ms": 25.347399961319805,
+      "std_ms": 6.692482904751162,
+      "min_ms": 0.0032999669201672077,
+      "max_ms": 35.574099980294704
+    }
+  },
+  "daat": {
+    "identifier": "SelfIndex_i3d1c1qDo0",
+    "query_processing": "Document-at-a-Time",
+    "index_stats": {
+      "identifier": "SelfIndex_i3d1c1qDo0",
+      "query_processing": "Document-at-a-Time (DAAT)",
+      "doc_count": 50000,
+      "unique_terms": 486898,
+      "avg_doc_length": 500.47218
+    },
+    "latency": {
+      "mean_ms": 5.198505999869667,
+      "median_ms": 0.7774499827064574,
+      "p50_ms": 0.7774499827064574,
+      "p95_ms": 18.729784988681786,
+      "p99_ms": 29.562864997424196,
+      "std_ms": 7.079819943784163,
+      "min_ms": 0.003100023604929447,
+      "max_ms": 31.33149998029694
+    }
+  }
+}

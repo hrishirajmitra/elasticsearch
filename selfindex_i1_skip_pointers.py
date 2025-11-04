@@ -11,6 +11,7 @@ from typing import List, Dict, Tuple, Iterable, Optional
 from collections import defaultdict, Counter
 import time
 from index_base import IndexBase
+from query_preprocessing import preprocess_query
 
 
 class SkipPointer:
@@ -406,7 +407,9 @@ class SelfIndexI1(IndexBase):
     
     def _tfidf_query(self, query_text: str, size: int = 10) -> str:
         """TF-IDF scoring query WITH skip pointers (though not beneficial for scoring)"""
-        query_terms = query_text.lower().split()
+        # Preprocess query (stem, remove stopwords)
+        processed_query = preprocess_query(query_text)
+        query_terms = processed_query.split() if processed_query else []
         
         # Calculate scores for all documents
         doc_scores = {}

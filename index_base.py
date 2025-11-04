@@ -10,6 +10,7 @@ class IndexInfo(Enum):
     BOOLEAN = 1
     WORDCOUNT = 2
     TFIDF = 3
+    BM25 = 4
 class DataStore(Enum):
     CUSTOM = 1
     DB1 = 2

@@ -1,0 +1,1341 @@
+{
+  "metadata": {
+    "benchmark_timestamp": "2025-11-04 04:29:54",
+    "query_set_size": 100,
+    "query_set_metadata": {
+      "total_queries": 100,
+      "num_templates": 10,
+      "distribution_strategy": "balanced_across_templates",
+      "query_types": [
+        "simple",
+        "phrase",
+        "boolean_and",
+        "boolean_or",
+        "boolean_not",
+        "complex"
+      ],
+      "type_distribution": {
+        "simple": 30,
+        "phrase": 30,
+        "boolean_and": 10,
+        "boolean_or": 10,
+        "boolean_not": 10,
+        "complex": 10
+      },
+      "category_breakdown": {
+        "Single Term - High Frequency": {
+          "count": 10,
+          "type": "simple",
+          "description": "Common words with large posting lists"
+        },
+        "Single Term - Medium Frequency": {
+          "count": 10,
+          "type": "simple",
+          "description": "Moderately common technical terms"
+        },
+        "Single Term - Low Frequency": {
+          "count": 10,
+          "type": "simple",
+          "description": "Rare or specialized terms"
+        },
+        "Two-Term Phrases": {
+          "count": 10,
+          "type": "phrase",
+          "description": "Simple phrase queries with implicit AND"
+        },
+        "Three-Term Phrases": {
+          "count": 10,
+          "type": "phrase",
+          "description": "More specific phrase queries"
+        },
+        "Boolean AND Queries": {
+          "count": 10,
+          "type": "boolean_and",
+          "description": "Explicit AND operator for intersection"
+        },
+        "Boolean OR Queries": {
+          "count": 10,
+          "type": "boolean_or",
+          "description": "OR operator for broader recall"
+        },
+        "Boolean NOT Queries": {
+          "count": 10,
+          "type": "boolean_not",
+          "description": "NOT operator for filtering results"
+        },
+        "Complex Boolean Queries": {
+          "count": 10,
+          "type": "complex",
+          "description": "Nested boolean expressions"
+        },
+        "Long-Tail Queries": {
+          "count": 10,
+          "type": "phrase",
+          "description": "Longer, more specific queries"
+        }
+      }
+    },
+    "optimization": "Skip Pointers"
+  },
+  "indices": {
+    "SelfIndex_i3d1c1qTo0": {
+      "index_stats": {
+        "identifier": "SelfIndex_i3d1c1qTo0",
+        "optimization": "None",
+        "doc_count": 49604,
+        "unique_terms": 484284,
+        "avg_doc_length": 499.28279977421175
+      },
+      "latency": {
+        "indexer": "SelfIndex_i3d1c1qTo0",
+        "total_queries": 100,
+        "latencies_ms": [
+          8.59779998427257,
+          0.7543999818153679,
+          0.8546999888494611,
+          0.5130000063218176,
+          0.008200004231184721,
+          0.00500003807246685,
+          0.004800036549568176,
+          0.013999990187585354,
+          0.00790000194683671,
+          0.005699985194951296,
+          0.37859997246414423,
+          0.013999990187585354,
+          0.007599999662488699,
+          0.006199989002197981,
+          0.005499983672052622,
+          0.003999972250312567,
+          0.007800001185387373,
+          12.303599971346557,
+          7.051700027659535,
+          0.012699980288743973,
+          2.3843999952077866,
+          0.0198000343516469,
+          0.20100001711398363,
+          0.01209997572004795,
+          3.2922999816946685,
+          0.006400048732757568,
+          0.004099973011761904,
+          0.2859000233002007,
+          4.784799995832145,
+          2.187000005505979,
+          0.021299987565726042,
+          0.04409998655319214,
+          0.009199953638017178,
+          0.009200011845678091,
+          0.9968000231310725,
+          0.005999987479299307,
+          0.004400033503770828,
+          0.0033999676816165447,
+          0.012599979527294636,
+          0.009000010322779417,
+          3.4334000083617866,
+          0.16310001956298947,
+          2.971599984448403,
+          0.01610000617802143,
+          0.007700000423938036,
+          0.004599976819008589,
+          7.15159997344017,
+          0.011500029359012842,
+          0.005199981387704611,
+          6.7128000082448125,
+          0.16990001313388348,
+          0.01869996776804328,
+          0.005799985956400633,
+          6.1089000082574785,
+          0.031400006264448166,
+          0.6683999672532082,
+          0.023500004317611456,
+          18.40609998907894,
+          0.02400000812485814,
+          0.009300012607127428,
+          0.017300015315413475,
+          0.03250001464039087,
+          5.272000038530678,
+          0.011300027836114168,
+          15.127899998333305,
+          0.02659996971487999,
+          12.018500012345612,
+          3.9183999761007726,
+          0.009200011845678091,
+          0.06940000457689166,
+          0.013499986380338669,
+          0.004599976819008589,
+          0.6114999996498227,
+          12.443700048606843,
+          0.012700038496404886,
+          8.782599994447082,
+          0.026799971237778664,
+          0.01179997343569994,
+          0.007099995855242014,
+          9.657700022216886,
+          0.030700000934302807,
+          14.210699999239296,
+          0.03300001844763756,
+          0.3040999872609973,
+          0.018000020645558834,
+          0.011500029359012842,
+          0.07130001904442906,
+          0.3799000405706465,
+          0.010500021744519472,
+          0.007499998901039362,
+          0.007199996616691351,
+          0.013899989426136017,
+          0.01379998866468668,
+          0.009500014130026102,
+          0.009299954399466515,
+          0.012599979527294636,
+          0.005799985956400633,
+          0.006199989002197981,
+          11.145600001327693,
+          0.22950000129640102
+        ],
+        "query_details": [
+          {
+            "query": "medical research breakthrough",
+            "latency_ms": 8.59779998427257,
+            "total_hits": 5017
+          },
+          {
+            "query": "system NOT operating",
+            "latency_ms": 0.7543999818153679,
+            "total_hits": 7634
+          },
+          {
+            "query": "government",
+            "latency_ms": 0.8546999888494611,
+            "total_hits": 461
+          },
+          {
+            "query": "quantum",
+            "latency_ms": 0.5130000063218176,
+            "total_hits": 281
+          },
+          {
+            "query": "climate change",
+            "latency_ms": 0.008200004231184721,
+            "total_hits": 0
+          },
+          {
+            "query": "thermodynamics",
+            "latency_ms": 0.00500003807246685,
+            "total_hits": 0
+          },
+          {
+            "query": "phenomenology",
+            "latency_ms": 0.004800036549568176,
+            "total_hits": 0
+          },
+          {
+            "query": "education AND reform AND policy",
+            "latency_ms": 0.013999990187585354,
+            "total_hits": 0
+          },
+          {
+            "query": "security OR safety OR protection",
+            "latency_ms": 0.00790000194683671,
+            "total_hits": 0
+          },
+          {
+            "query": "cyber AND security AND attack",
+            "latency_ms": 0.005699985194951296,
+            "total_hits": 0
+          },
+          {
+            "query": "quantum computing cryptography security implications",
+            "latency_ms": 0.37859997246414423,
+            "total_hits": 281
+          },
+          {
+            "query": "(quantum OR classical) AND computing NOT simulation",
+            "latency_ms": 0.013999990187585354,
+            "total_hits": 0
+          },
+          {
+            "query": "data AND science AND analytics",
+            "latency_ms": 0.007599999662488699,
+            "total_hits": 0
+          },
+          {
+            "query": "renewable AND energy AND solar",
+            "latency_ms": 0.006199989002197981,
+            "total_hits": 0
+          },
+          {
+            "query": "environmental sustainability goals",
+            "latency_ms": 0.005499983672052622,
+            "total_hits": 0
+          },
+          {
+            "query": "security",
+            "latency_ms": 0.003999972250312567,
+            "total_hits": 0
+          },
+          {
+            "query": "(health OR medical) AND (research OR study) NOT animal",
+            "latency_ms": 0.007800001185387373,
+            "total_hits": 0
+          },
+          {
+            "query": "electoral system",
+            "latency_ms": 12.303599971346557,
+            "total_hits": 7634
+          },
+          {
+            "query": "mental health",
+            "latency_ms": 7.051700027659535,
+            "total_hits": 3697
+          },
+          {
+            "query": "business",
+            "latency_ms": 0.012699980288743973,
+            "total_hits": 0
+          },
+          {
+            "query": "cybersecurity threat detection prevention response",
+            "latency_ms": 2.3843999952077866,
+            "total_hits": 1379
+          },
+          {
+            "query": "financial crisis",
+            "latency_ms": 0.0198000343516469,
+            "total_hits": 1
+          },
+          {
+            "query": "data NOT privacy",
+            "latency_ms": 0.20100001711398363,
+            "total_hits": 2269
+          },
+          {
+            "query": "(artificial OR natural) AND intelligence NOT extraterrestrial",
+            "latency_ms": 0.01209997572004795,
+            "total_hits": 0
+          },
+          {
+            "query": "data science",
+            "latency_ms": 3.2922999816946685,
+            "total_hits": 2269
+          },
+          {
+            "query": "etymology",
+            "latency_ms": 0.006400048732757568,
+            "total_hits": 0
+          },
+          {
+            "query": "semiotics",
+            "latency_ms": 0.004099973011761904,
+            "total_hits": 0
+          },
+          {
+            "query": "research NOT medical",
+            "latency_ms": 0.2859000233002007,
+            "total_hits": 4747
+          },
+          {
+            "query": "health",
+            "latency_ms": 4.784799995832145,
+            "total_hits": 3060
+          },
+          {
+            "query": "supply chain",
+            "latency_ms": 2.187000005505979,
+            "total_hits": 1410
+          },
+          {
+            "query": "digital",
+            "latency_ms": 0.021299987565726042,
+            "total_hits": 3
+          },
+          {
+            "query": "development NOT software",
+            "latency_ms": 0.04409998655319214,
+            "total_hits": 209
+          },
+          {
+            "query": "data OR analytics OR statistics",
+            "latency_ms": 0.009199953638017178,
+            "total_hits": 0
+          },
+          {
+            "query": "(data OR information) AND (security OR privacy)",
+            "latency_ms": 0.009200011845678091,
+            "total_hits": 0
+          },
+          {
+            "query": "autonomous vehicle safety regulation policy framework",
+            "latency_ms": 0.9968000231310725,
+            "total_hits": 694
+          },
+          {
+            "query": "cartography",
+            "latency_ms": 0.005999987479299307,
+            "total_hits": 0
+          },
+          {
+            "query": "management",
+            "latency_ms": 0.004400033503770828,
+            "total_hits": 0
+          },
+          {
+            "query": "sustainability",
+            "latency_ms": 0.0033999676816165447,
+            "total_hits": 0
+          },
+          {
+            "query": "digital currency regulation",
+            "latency_ms": 0.012599979527294636,
+            "total_hits": 3
+          },
+          {
+            "query": "(renewable OR solar) AND energy NOT nuclear",
+            "latency_ms": 0.009000010322779417,
+            "total_hits": 0
+          },
+          {
+            "query": "climate change environmental impact mitigation strategies",
+            "latency_ms": 3.4334000083617866,
+            "total_hits": 1997
+          },
+          {
+            "query": "government NOT federal",
+            "latency_ms": 0.16310001956298947,
+            "total_hits": 461
+          },
+          {
+            "query": "climate change impact",
+            "latency_ms": 2.971599984448403,
+            "total_hits": 1997
+          },
+          {
+            "query": "technology AND (innovation OR research) NOT military",
+            "latency_ms": 0.01610000617802143,
+            "total_hits": 0
+          },
+          {
+            "query": "economy OR economic OR financial",
+            "latency_ms": 0.007700000423938036,
+            "total_hits": 0
+          },
+          {
+            "query": "cryptocurrency",
+            "latency_ms": 0.004599976819008589,
+            "total_hits": 0
+          },
+          {
+            "query": "research",
+            "latency_ms": 7.15159997344017,
+            "total_hits": 4748
+          },
+          {
+            "query": "metamorphosis",
+            "latency_ms": 0.011500029359012842,
+            "total_hits": 0
+          },
+          {
+            "query": "biodiversity",
+            "latency_ms": 0.005199981387704611,
+            "total_hits": 0
+          },
+          {
+            "query": "sustainable development environmental economic social",
+            "latency_ms": 6.7128000082448125,
+            "total_hits": 4161
+          },
+          {
+            "query": "blockchain technology distributed ledger financial systems",
+            "latency_ms": 0.16990001313388348,
+            "total_hits": 68
+          },
+          {
+            "query": "energy OR power OR renewable",
+            "latency_ms": 0.01869996776804328,
+            "total_hits": 0
+          },
+          {
+            "query": "ornithology",
+            "latency_ms": 0.005799985956400633,
+            "total_hits": 0
+          },
+          {
+            "query": "financial market stability",
+            "latency_ms": 6.1089000082574785,
+            "total_hits": 3707
+          },
+          {
+            "query": "international OR global OR worldwide",
+            "latency_ms": 0.031400006264448166,
+            "total_hits": 0
+          },
+          {
+            "query": "health NOT mental",
+            "latency_ms": 0.6683999672532082,
+            "total_hits": 2667
+          },
+          {
+            "query": "education OR training OR learning",
+            "latency_ms": 0.023500004317611456,
+            "total_hits": 0
+          },
+          {
+            "query": "public health",
+            "latency_ms": 18.40609998907894,
+            "total_hits": 11109
+          },
+          {
+            "query": "financial AND market AND regulation",
+            "latency_ms": 0.02400000812485814,
+            "total_hits": 0
+          },
+          {
+            "query": "technology OR innovation OR digital",
+            "latency_ms": 0.009300012607127428,
+            "total_hits": 0
+          },
+          {
+            "query": "science",
+            "latency_ms": 0.017300015315413475,
+            "total_hits": 0
+          },
+          {
+            "query": "security NOT cyber",
+            "latency_ms": 0.03250001464039087,
+            "total_hits": 0
+          },
+          {
+            "query": "global supply chain",
+            "latency_ms": 5.272000038530678,
+            "total_hits": 3102
+          },
+          {
+            "query": "technology",
+            "latency_ms": 0.011300027836114168,
+            "total_hits": 0
+          },
+          {
+            "query": "social media",
+            "latency_ms": 15.127899998333305,
+            "total_hits": 6962
+          },
+          {
+            "query": "artificial AND intelligence",
+            "latency_ms": 0.02659996971487999,
+            "total_hits": 0
+          },
+          {
+            "query": "international trade agreement",
+            "latency_ms": 12.018500012345612,
+            "total_hits": 5118
+          },
+          {
+            "query": "data privacy protection",
+            "latency_ms": 3.9183999761007726,
+            "total_hits": 2293
+          },
+          {
+            "query": "policy",
+            "latency_ms": 0.009200011845678091,
+            "total_hits": 0
+          },
+          {
+            "query": "artificial intelligence natural language processing applications",
+            "latency_ms": 0.06940000457689166,
+            "total_hits": 17
+          },
+          {
+            "query": "photosynthesis",
+            "latency_ms": 0.013499986380338669,
+            "total_hits": 1
+          },
+          {
+            "query": "automation",
+            "latency_ms": 0.004599976819008589,
+            "total_hits": 0
+          },
+          {
+            "query": "algorithm",
+            "latency_ms": 0.6114999996498227,
+            "total_hits": 364
+          },
+          {
+            "query": "system",
+            "latency_ms": 12.443700048606843,
+            "total_hits": 7634
+          },
+          {
+            "query": "optimization",
+            "latency_ms": 0.012700038496404886,
+            "total_hits": 0
+          },
+          {
+            "query": "global health pandemic preparedness response systems",
+            "latency_ms": 8.782599994447082,
+            "total_hits": 4484
+          },
+          {
+            "query": "development OR progress OR advancement",
+            "latency_ms": 0.026799971237778664,
+            "total_hits": 0
+          },
+          {
+            "query": "(climate OR environment) AND (change OR warming)",
+            "latency_ms": 0.01179997343569994,
+            "total_hits": 0
+          },
+          {
+            "query": "toxicology",
+            "latency_ms": 0.007099995855242014,
+            "total_hits": 0
+          },
+          {
+            "query": "space exploration mission",
+            "latency_ms": 9.657700022216886,
+            "total_hits": 5285
+          },
+          {
+            "query": "technology AND innovation AND research",
+            "latency_ms": 0.030700000934302807,
+            "total_hits": 0
+          },
+          {
+            "query": "renewable energy solar power grid integration",
+            "latency_ms": 14.210699999239296,
+            "total_hits": 7247
+          },
+          {
+            "query": "environmental AND protection AND law",
+            "latency_ms": 0.03300001844763756,
+            "total_hits": 0
+          },
+          {
+            "query": "science NOT fiction",
+            "latency_ms": 0.3040999872609973,
+            "total_hits": 0
+          },
+          {
+            "query": "(social OR digital) AND media NOT advertising",
+            "latency_ms": 0.018000020645558834,
+            "total_hits": 0
+          },
+          {
+            "query": "system OR infrastructure OR network",
+            "latency_ms": 0.011500029359012842,
+            "total_hits": 0
+          },
+          {
+            "query": "energy NOT nuclear",
+            "latency_ms": 0.07130001904442906,
+            "total_hits": 0
+          },
+          {
+            "query": "national security",
+            "latency_ms": 0.3799000405706465,
+            "total_hits": 143
+          },
+          {
+            "query": "analytics",
+            "latency_ms": 0.010500021744519472,
+            "total_hits": 0
+          },
+          {
+            "query": "renewable energy",
+            "latency_ms": 0.007499998901039362,
+            "total_hits": 0
+          },
+          {
+            "query": "biotechnology",
+            "latency_ms": 0.007199996616691351,
+            "total_hits": 0
+          },
+          {
+            "query": "machine AND learning AND deep",
+            "latency_ms": 0.013899989426136017,
+            "total_hits": 0
+          },
+          {
+            "query": "(artificial AND intelligence) OR (machine AND learning)",
+            "latency_ms": 0.01379998866468668,
+            "total_hits": 0
+          },
+          {
+            "query": "climate AND change AND policy",
+            "latency_ms": 0.009500014130026102,
+            "total_hits": 0
+          },
+          {
+            "query": "climate OR environment OR ecology",
+            "latency_ms": 0.009299954399466515,
+            "total_hits": 0
+          },
+          {
+            "query": "(economic OR financial) AND (growth OR development) NOT recession",
+            "latency_ms": 0.012599979527294636,
+            "total_hits": 0
+          },
+          {
+            "query": "cryptography",
+            "latency_ms": 0.005799985956400633,
+            "total_hits": 0
+          },
+          {
+            "query": "economic policy analysis",
+            "latency_ms": 0.006199989002197981,
+            "total_hits": 0
+          },
+          {
+            "query": "machine learning deep neural network architecture",
+            "latency_ms": 11.145600001327693,
+            "total_hits": 5205
+          },
+          {
+            "query": "education NOT higher",
+            "latency_ms": 0.22950000129640102,
+            "total_hits": 1
+          }
+        ],
+        "statistics": {
+          "mean_ms": 1.8540029996074736,
+          "median_ms": 0.018349994206801057,
+          "std_ms": 3.9246682525994077,
+          "min_ms": 0.0033999676816165447,
+          "max_ms": 18.40609998907894,
+          "p50_ms": 0.018349994206801057,
+          "p95_ms": 12.03275501029566,
+          "p99_ms": 15.160681998240777,
+          "p999_ms": 18.081558189995157
+        }
+      }
+    },
+    "SelfIndex_i3d1c1qTosp": {
+      "index_stats": {
+        "identifier": "SelfIndex_i3d1c1qTosp",
+        "optimization": "Skip Pointers",
+        "doc_count": 50000,
+        "unique_terms": 486898,
+        "avg_doc_length": 500.47218,
+        "total_skip_pointers": 376084,
+        "avg_skip_interval": 8.349134726369794,
+        "skip_overhead_bytes": 3008672
+      },
+      "latency": {
+        "indexer": "SelfIndex_i3d1c1qTosp",
+        "total_queries": 100,
+        "latencies_ms": [
+          8.463500009384006,
+          0.4222000134177506,
+          0.7963000098243356,
+          0.47639996046200395,
+          0.007700000423938036,
+          0.004600035026669502,
+          0.003999972250312567,
+          0.009499955922365189,
+          0.007199996616691351,
+          0.006199989002197981,
+          0.19130000146105886,
+          0.011200027074664831,
+          0.006499991286545992,
+          0.005300040356814861,
+          0.005100038833916187,
+          0.003700028173625469,
+          0.007800001185387373,
+          13.71980004478246,
+          6.956900004297495,
+          0.010700023267418146,
+          2.3483000113628805,
+          0.017899961676448584,
+          0.13110000872984529,
+          0.011699972674250603,
+          3.8988000014796853,
+          0.008000002708286047,
+          0.004499976057559252,
+          0.18350000027567148,
+          4.658500023651868,
+          2.636799996253103,
+          0.031400006264448166,
+          0.04880002234131098,
+          0.009999959729611874,
+          0.010000017937272787,
+          1.4657999854534864,
+          0.008800008799880743,
+          0.004100031219422817,
+          0.00400003045797348,
+          0.01850002445280552,
+          0.011200027074664831,
+          3.6250000121071935,
+          0.05829997826367617,
+          2.556700026616454,
+          0.022199994418770075,
+          0.009199953638017178,
+          0.0048999791033566,
+          7.690099999308586,
+          0.011500029359012842,
+          0.004100031219422817,
+          7.341600023210049,
+          0.17990003107115626,
+          0.018499966245144606,
+          0.005399982910603285,
+          6.816600041929632,
+          0.024600012693554163,
+          0.2011999604292214,
+          0.008800008799880743,
+          20.354800042696297,
+          0.02269999822601676,
+          0.008600007276982069,
+          0.016000005416572094,
+          0.030399998649954796,
+          5.599999974947423,
+          0.009300012607127428,
+          13.624000013805926,
+          0.023500004317611456,
+          11.5104999858886,
+          4.677999997511506,
+          0.009400013368576765,
+          0.07069995626807213,
+          0.013200042303651571,
+          0.004399975296109915,
+          0.6119000026956201,
+          12.636900006327778,
+          0.011999974958598614,
+          7.635399990249425,
+          0.02440001117065549,
+          0.011000025551766157,
+          0.006399990525096655,
+          8.543300034943968,
+          0.0295999925583601,
+          10.966399975586683,
+          0.020400038920342922,
+          0.1047999830916524,
+          0.009500014130026102,
+          0.007599999662488699,
+          0.03309996100142598,
+          0.2738999901339412,
+          0.00589998671784997,
+          0.004799978341907263,
+          0.0038999714888632298,
+          0.007299997378140688,
+          0.008000002708286047,
+          0.006200047209858894,
+          0.006399990525096655,
+          0.007599999662488699,
+          0.0036999699659645557,
+          0.00400003045797348,
+          8.241100003942847,
+          0.10740000288933516
+        ],
+        "query_details": [
+          {
+            "query": "medical research breakthrough",
+            "latency_ms": 8.463500009384006,
+            "total_hits": 5056
+          },
+          {
+            "query": "system NOT operating",
+            "latency_ms": 0.4222000134177506,
+            "total_hits": 7694
+          },
+          {
+            "query": "government",
+            "latency_ms": 0.7963000098243356,
+            "total_hits": 467
+          },
+          {
+            "query": "quantum",
+            "latency_ms": 0.47639996046200395,
+            "total_hits": 284
+          },
+          {
+            "query": "climate change",
+            "latency_ms": 0.007700000423938036,
+            "total_hits": 0
+          },
+          {
+            "query": "thermodynamics",
+            "latency_ms": 0.004600035026669502,
+            "total_hits": 0
+          },
+          {
+            "query": "phenomenology",
+            "latency_ms": 0.003999972250312567,
+            "total_hits": 0
+          },
+          {
+            "query": "education AND reform AND policy",
+            "latency_ms": 0.009499955922365189,
+            "total_hits": 0
+          },
+          {
+            "query": "security OR safety OR protection",
+            "latency_ms": 0.007199996616691351,
+            "total_hits": 0
+          },
+          {
+            "query": "cyber AND security AND attack",
+            "latency_ms": 0.006199989002197981,
+            "total_hits": 0
+          },
+          {
+            "query": "quantum computing cryptography security implications",
+            "latency_ms": 0.19130000146105886,
+            "total_hits": 284
+          },
+          {
+            "query": "(quantum OR classical) AND computing NOT simulation",
+            "latency_ms": 0.011200027074664831,
+            "total_hits": 0
+          },
+          {
+            "query": "data AND science AND analytics",
+            "latency_ms": 0.006499991286545992,
+            "total_hits": 0
+          },
+          {
+            "query": "renewable AND energy AND solar",
+            "latency_ms": 0.005300040356814861,
+            "total_hits": 0
+          },
+          {
+            "query": "environmental sustainability goals",
+            "latency_ms": 0.005100038833916187,
+            "total_hits": 0
+          },
+          {
+            "query": "security",
+            "latency_ms": 0.003700028173625469,
+            "total_hits": 0
+          },
+          {
+            "query": "(health OR medical) AND (research OR study) NOT animal",
+            "latency_ms": 0.007800001185387373,
+            "total_hits": 0
+          },
+          {
+            "query": "electoral system",
+            "latency_ms": 13.71980004478246,
+            "total_hits": 7694
+          },
+          {
+            "query": "mental health",
+            "latency_ms": 6.956900004297495,
+            "total_hits": 3719
+          },
+          {
+            "query": "business",
+            "latency_ms": 0.010700023267418146,
+            "total_hits": 0
+          },
+          {
+            "query": "cybersecurity threat detection prevention response",
+            "latency_ms": 2.3483000113628805,
+            "total_hits": 1381
+          },
+          {
+            "query": "financial crisis",
+            "latency_ms": 0.017899961676448584,
+            "total_hits": 1
+          },
+          {
+            "query": "data NOT privacy",
+            "latency_ms": 0.13110000872984529,
+            "total_hits": 2288
+          },
+          {
+            "query": "(artificial OR natural) AND intelligence NOT extraterrestrial",
+            "latency_ms": 0.011699972674250603,
+            "total_hits": 0
+          },
+          {
+            "query": "data science",
+            "latency_ms": 3.8988000014796853,
+            "total_hits": 2288
+          },
+          {
+            "query": "etymology",
+            "latency_ms": 0.008000002708286047,
+            "total_hits": 0
+          },
+          {
+            "query": "semiotics",
+            "latency_ms": 0.004499976057559252,
+            "total_hits": 0
+          },
+          {
+            "query": "research NOT medical",
+            "latency_ms": 0.18350000027567148,
+            "total_hits": 4782
+          },
+          {
+            "query": "health",
+            "latency_ms": 4.658500023651868,
+            "total_hits": 3078
+          },
+          {
+            "query": "supply chain",
+            "latency_ms": 2.636799996253103,
+            "total_hits": 1419
+          },
+          {
+            "query": "digital",
+            "latency_ms": 0.031400006264448166,
+            "total_hits": 3
+          },
+          {
+            "query": "development NOT software",
+            "latency_ms": 0.04880002234131098,
+            "total_hits": 211
+          },
+          {
+            "query": "data OR analytics OR statistics",
+            "latency_ms": 0.009999959729611874,
+            "total_hits": 0
+          },
+          {
+            "query": "(data OR information) AND (security OR privacy)",
+            "latency_ms": 0.010000017937272787,
+            "total_hits": 0
+          },
+          {
+            "query": "autonomous vehicle safety regulation policy framework",
+            "latency_ms": 1.4657999854534864,
+            "total_hits": 706
+          },
+          {
+            "query": "cartography",
+            "latency_ms": 0.008800008799880743,
+            "total_hits": 0
+          },
+          {
+            "query": "management",
+            "latency_ms": 0.004100031219422817,
+            "total_hits": 0
+          },
+          {
+            "query": "sustainability",
+            "latency_ms": 0.00400003045797348,
+            "total_hits": 0
+          },
+          {
+            "query": "digital currency regulation",
+            "latency_ms": 0.01850002445280552,
+            "total_hits": 3
+          },
+          {
+            "query": "(renewable OR solar) AND energy NOT nuclear",
+            "latency_ms": 0.011200027074664831,
+            "total_hits": 0
+          },
+          {
+            "query": "climate change environmental impact mitigation strategies",
+            "latency_ms": 3.6250000121071935,
+            "total_hits": 2016
+          },
+          {
+            "query": "government NOT federal",
+            "latency_ms": 0.05829997826367617,
+            "total_hits": 467
+          },
+          {
+            "query": "climate change impact",
+            "latency_ms": 2.556700026616454,
+            "total_hits": 2016
+          },
+          {
+            "query": "technology AND (innovation OR research) NOT military",
+            "latency_ms": 0.022199994418770075,
+            "total_hits": 0
+          },
+          {
+            "query": "economy OR economic OR financial",
+            "latency_ms": 0.009199953638017178,
+            "total_hits": 0
+          },
+          {
+            "query": "cryptocurrency",
+            "latency_ms": 0.0048999791033566,
+            "total_hits": 0
+          },
+          {
+            "query": "research",
+            "latency_ms": 7.690099999308586,
+            "total_hits": 4783
+          },
+          {
+            "query": "metamorphosis",
+            "latency_ms": 0.011500029359012842,
+            "total_hits": 0
+          },
+          {
+            "query": "biodiversity",
+            "latency_ms": 0.004100031219422817,
+            "total_hits": 0
+          },
+          {
+            "query": "sustainable development environmental economic social",
+            "latency_ms": 7.341600023210049,
+            "total_hits": 4192
+          },
+          {
+            "query": "blockchain technology distributed ledger financial systems",
+            "latency_ms": 0.17990003107115626,
+            "total_hits": 68
+          },
+          {
+            "query": "energy OR power OR renewable",
+            "latency_ms": 0.018499966245144606,
+            "total_hits": 0
+          },
+          {
+            "query": "ornithology",
+            "latency_ms": 0.005399982910603285,
+            "total_hits": 0
+          },
+          {
+            "query": "financial market stability",
+            "latency_ms": 6.816600041929632,
+            "total_hits": 3728
+          },
+          {
+            "query": "international OR global OR worldwide",
+            "latency_ms": 0.024600012693554163,
+            "total_hits": 0
+          },
+          {
+            "query": "health NOT mental",
+            "latency_ms": 0.2011999604292214,
+            "total_hits": 2683
+          },
+          {
+            "query": "education OR training OR learning",
+            "latency_ms": 0.008800008799880743,
+            "total_hits": 0
+          },
+          {
+            "query": "public health",
+            "latency_ms": 20.354800042696297,
+            "total_hits": 11190
+          },
+          {
+            "query": "financial AND market AND regulation",
+            "latency_ms": 0.02269999822601676,
+            "total_hits": 0
+          },
+          {
+            "query": "technology OR innovation OR digital",
+            "latency_ms": 0.008600007276982069,
+            "total_hits": 0
+          },
+          {
+            "query": "science",
+            "latency_ms": 0.016000005416572094,
+            "total_hits": 0
+          },
+          {
+            "query": "security NOT cyber",
+            "latency_ms": 0.030399998649954796,
+            "total_hits": 0
+          },
+          {
+            "query": "global supply chain",
+            "latency_ms": 5.599999974947423,
+            "total_hits": 3126
+          },
+          {
+            "query": "technology",
+            "latency_ms": 0.009300012607127428,
+            "total_hits": 0
+          },
+          {
+            "query": "social media",
+            "latency_ms": 13.624000013805926,
+            "total_hits": 7011
+          },
+          {
+            "query": "artificial AND intelligence",
+            "latency_ms": 0.023500004317611456,
+            "total_hits": 0
+          },
+          {
+            "query": "international trade agreement",
+            "latency_ms": 11.5104999858886,
+            "total_hits": 5177
+          },
+          {
+            "query": "data privacy protection",
+            "latency_ms": 4.677999997511506,
+            "total_hits": 2312
+          },
+          {
+            "query": "policy",
+            "latency_ms": 0.009400013368576765,
+            "total_hits": 0
+          },
+          {
+            "query": "artificial intelligence natural language processing applications",
+            "latency_ms": 0.07069995626807213,
+            "total_hits": 17
+          },
+          {
+            "query": "photosynthesis",
+            "latency_ms": 0.013200042303651571,
+            "total_hits": 1
+          },
+          {
+            "query": "automation",
+            "latency_ms": 0.004399975296109915,
+            "total_hits": 0
+          },
+          {
+            "query": "algorithm",
+            "latency_ms": 0.6119000026956201,
+            "total_hits": 368
+          },
+          {
+            "query": "system",
+            "latency_ms": 12.636900006327778,
+            "total_hits": 7694
+          },
+          {
+            "query": "optimization",
+            "latency_ms": 0.011999974958598614,
+            "total_hits": 0
+          },
+          {
+            "query": "global health pandemic preparedness response systems",
+            "latency_ms": 7.635399990249425,
+            "total_hits": 4511
+          },
+          {
+            "query": "development OR progress OR advancement",
+            "latency_ms": 0.02440001117065549,
+            "total_hits": 0
+          },
+          {
+            "query": "(climate OR environment) AND (change OR warming)",
+            "latency_ms": 0.011000025551766157,
+            "total_hits": 0
+          },
+          {
+            "query": "toxicology",
+            "latency_ms": 0.006399990525096655,
+            "total_hits": 0
+          },
+          {
+            "query": "space exploration mission",
+            "latency_ms": 8.543300034943968,
+            "total_hits": 5330
+          },
+          {
+            "query": "technology AND innovation AND research",
+            "latency_ms": 0.0295999925583601,
+            "total_hits": 0
+          },
+          {
+            "query": "renewable energy solar power grid integration",
+            "latency_ms": 10.966399975586683,
+            "total_hits": 7311
+          },
+          {
+            "query": "environmental AND protection AND law",
+            "latency_ms": 0.020400038920342922,
+            "total_hits": 0
+          },
+          {
+            "query": "science NOT fiction",
+            "latency_ms": 0.1047999830916524,
+            "total_hits": 0
+          },
+          {
+            "query": "(social OR digital) AND media NOT advertising",
+            "latency_ms": 0.009500014130026102,
+            "total_hits": 0
+          },
+          {
+            "query": "system OR infrastructure OR network",
+            "latency_ms": 0.007599999662488699,
+            "total_hits": 0
+          },
+          {
+            "query": "energy NOT nuclear",
+            "latency_ms": 0.03309996100142598,
+            "total_hits": 0
+          },
+          {
+            "query": "national security",
+            "latency_ms": 0.2738999901339412,
+            "total_hits": 148
+          },
+          {
+            "query": "analytics",
+            "latency_ms": 0.00589998671784997,
+            "total_hits": 0
+          },
+          {
+            "query": "renewable energy",
+            "latency_ms": 0.004799978341907263,
+            "total_hits": 0
+          },
+          {
+            "query": "biotechnology",
+            "latency_ms": 0.0038999714888632298,
+            "total_hits": 0
+          },
+          {
+            "query": "machine AND learning AND deep",
+            "latency_ms": 0.007299997378140688,
+            "total_hits": 0
+          },
+          {
+            "query": "(artificial AND intelligence) OR (machine AND learning)",
+            "latency_ms": 0.008000002708286047,
+            "total_hits": 0
+          },
+          {
+            "query": "climate AND change AND policy",
+            "latency_ms": 0.006200047209858894,
+            "total_hits": 0
+          },
+          {
+            "query": "climate OR environment OR ecology",
+            "latency_ms": 0.006399990525096655,
+            "total_hits": 0
+          },
+          {
+            "query": "(economic OR financial) AND (growth OR development) NOT recession",
+            "latency_ms": 0.007599999662488699,
+            "total_hits": 0
+          },
+          {
+            "query": "cryptography",
+            "latency_ms": 0.0036999699659645557,
+            "total_hits": 0
+          },
+          {
+            "query": "economic policy analysis",
+            "latency_ms": 0.00400003045797348,
+            "total_hits": 0
+          },
+          {
+            "query": "machine learning deep neural network architecture",
+            "latency_ms": 8.241100003942847,
+            "total_hits": 5227
+          },
+          {
+            "query": "education NOT higher",
+            "latency_ms": 0.10740000288933516,
+            "total_hits": 1
+          }
+        ],
+        "statistics": {
+          "mean_ms": 1.8051460024435073,
+          "median_ms": 0.018199963960796595,
+          "std_ms": 3.846584912337514,
+          "min_ms": 0.0036999699659645557,
+          "max_ms": 20.354800042696297,
+          "p50_ms": 0.018199963960796595,
+          "p95_ms": 10.993604976101777,
+          "p99_ms": 13.786150044761632,
+          "p999_ms": 19.6979350429029
+        }
+      }
+    }
+  }
+}

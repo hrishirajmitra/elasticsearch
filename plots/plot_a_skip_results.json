@@ -1,0 +1,131 @@
+{
+  "metadata": {
+    "benchmark_timestamp": "2025-11-04 04:29:54",
+    "query_set_size": 100,
+    "query_set_metadata": {
+      "total_queries": 100,
+      "num_templates": 10,
+      "distribution_strategy": "balanced_across_templates",
+      "query_types": [
+        "simple",
+        "phrase",
+        "boolean_and",
+        "boolean_or",
+        "boolean_not",
+        "complex"
+      ],
+      "type_distribution": {
+        "simple": 30,
+        "phrase": 30,
+        "boolean_and": 10,
+        "boolean_or": 10,
+        "boolean_not": 10,
+        "complex": 10
+      },
+      "category_breakdown": {
+        "Single Term - High Frequency": {
+          "count": 10,
+          "type": "simple",
+          "description": "Common words with large posting lists"
+        },
+        "Single Term - Medium Frequency": {
+          "count": 10,
+          "type": "simple",
+          "description": "Moderately common technical terms"
+        },
+        "Single Term - Low Frequency": {
+          "count": 10,
+          "type": "simple",
+          "description": "Rare or specialized terms"
+        },
+        "Two-Term Phrases": {
+          "count": 10,
+          "type": "phrase",
+          "description": "Simple phrase queries with implicit AND"
+        },
+        "Three-Term Phrases": {
+          "count": 10,
+          "type": "phrase",
+          "description": "More specific phrase queries"
+        },
+        "Boolean AND Queries": {
+          "count": 10,
+          "type": "boolean_and",
+          "description": "Explicit AND operator for intersection"
+        },
+        "Boolean OR Queries": {
+          "count": 10,
+          "type": "boolean_or",
+          "description": "OR operator for broader recall"
+        },
+        "Boolean NOT Queries": {
+          "count": 10,
+          "type": "boolean_not",
+          "description": "NOT operator for filtering results"
+        },
+        "Complex Boolean Queries": {
+          "count": 10,
+          "type": "complex",
+          "description": "Nested boolean expressions"
+        },
+        "Long-Tail Queries": {
+          "count": 10,
+          "type": "phrase",
+          "description": "Longer, more specific queries"
+        }
+      }
+    },
+    "optimization": "Skip Pointers"
+  },
+  "indices": {
+    "SelfIndex_i3d1c1qTo0": {
+      "index_stats": {
+        "identifier": "SelfIndex_i3d1c1qTo0",
+        "optimization": "None",
+        "doc_count": 49604,
+        "unique_terms": 484284,
+        "avg_doc_length": 499.28279977421175
+      },
+      "latency": {
+        "statistics": {
+          "mean_ms": 1.8540029996074736,
+          "median_ms": 0.018349994206801057,
+          "std_ms": 3.9246682525994077,
+          "min_ms": 0.0033999676816165447,
+          "max_ms": 18.40609998907894,
+          "p50_ms": 0.018349994206801057,
+          "p95_ms": 12.03275501029566,
+          "p99_ms": 15.160681998240777,
+          "p999_ms": 18.081558189995157
+        },
+        "total_queries": 100
+      }
+    },
+    "SelfIndex_i3d1c1qTosp": {
+      "index_stats": {
+        "identifier": "SelfIndex_i3d1c1qTosp",
+        "optimization": "Skip Pointers",
+        "doc_count": 50000,
+        "unique_terms": 486898,
+        "avg_doc_length": 500.47218,
+        "total_skip_pointers": 376084,
+        "avg_skip_interval": 8.349134726369794,
+        "skip_overhead_bytes": 3008672
+      },
+      "latency": {
+        "statistics": {
+          "mean_ms": 1.8051460024435073,
+          "median_ms": 0.018199963960796595,
+          "std_ms": 3.846584912337514,
+          "min_ms": 0.0036999699659645557,
+          "max_ms": 20.354800042696297,
+          "p50_ms": 0.018199963960796595,
+          "p95_ms": 10.993604976101777,
+          "p99_ms": 13.786150044761632,
+          "p999_ms": 19.6979350429029
+        },
+        "total_queries": 100
+      }
+    }
+  }
+}
